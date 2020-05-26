@@ -7,6 +7,7 @@ export default function Sightings() {
     //view.innerHTML = `<div>${hasSightings ? sightings.map(sighting => JSON.stringify(sighting)) : 'No sightings.'}</div>`;
 }
 
+
 // async function getSightings(path) {
 //     const isHomeRoute = path === '/';
 //     const isRecentRoute = path === '/recent';
