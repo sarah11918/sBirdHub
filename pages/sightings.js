@@ -1,16 +1,32 @@
 import view from '../utils/view.js'
 
-export default function Sightings(path) {
-    view.innerHTML = `<div> ${path}</div>`;
+export default async function Sightings() {
+    const sightings = await getSightings();
+    view.innerHTML = `<div> ${sightings.map(sighting =>JSON.stringify(sighting))}</div>`;
 }
 
+async function getSightings() {
 
-// export default async function Sightings() {
-//     const sightings = await getSightings(path);
-//     const hasSightings = sightings.length > 0;
-//     view.innerHTML = `<div>${hasSightings ? sightings.map(sighting => JSON.stringify(sighting)) : 'No sightings.'}</div>`;
-// }
+    const myHeaders = new Headers();
+    myHeaders.append("X-eBirdApiToken", "2ifbkhv7g8ct");
 
+    const requestOptions = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+    };
+
+    const response = await fetch("https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/notable?detail=full", requestOptions);
+    const data = await response.json();
+    console.log(data);
+    return data;
+    
+    
+    //return sightings;
+    // .then(response => response.text())
+    // .then(result => console.log(result))
+    // .catch(error => console.log('error', error));
+}
 
 // async function getSightings(path) {
 //     const isHomeRoute = path === '/';
