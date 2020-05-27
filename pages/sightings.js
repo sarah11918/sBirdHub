@@ -4,12 +4,12 @@ export default function Sightings(path) {
     view.innerHTML = `<div> ${path}</div>`;
 }
 
-//export default function Sightings() {
-    //view.innerHTML = `<div> TEXT </div>`;
-    //const sightings = await getSightings(path);
-    //const hasSightings = sightings.length > 0;
-    //view.innerHTML = `<div>${hasSightings ? sightings.map(sighting => JSON.stringify(sighting)) : 'No sightings.'}</div>`;
-//}
+
+// export default async function Sightings() {
+//     const sightings = await getSightings(path);
+//     const hasSightings = sightings.length > 0;
+//     view.innerHTML = `<div>${hasSightings ? sightings.map(sighting => JSON.stringify(sighting)) : 'No sightings.'}</div>`;
+// }
 
 
 // async function getSightings(path) {
@@ -24,7 +24,7 @@ export default function Sightings(path) {
 //         path = 'data/obs/CA-PE-P/recent/notable'
 //     }
 
-//     const response = await fetch (`https:/https://api.ebird.org/v2${path}`,{headers:{'X-eBirdApiToken': '2ifbkhv7g8ct'}});
+//     const response = await fetch (`https://api.ebird.org/v2${path}`,{headers:{'X-eBirdApiToken': '2ifbkhv7g8ct'}});
 //     const sightings = await response.json();
 //     return sightings;
 // }
