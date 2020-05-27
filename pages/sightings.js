@@ -1,8 +1,10 @@
 import view from '../utils/view.js'
+import Sighting from '../utils/Sighting.js'
 
 export default async function Sightings(path) {
     const sightings = await getSightings(path);
-    view.innerHTML = `<div> ${sightings.map(sighting =>JSON.stringify(sighting))}</div>`;
+    view.innerHTML = `<div> ${sightings.map((sighting, i) => Sighting({ ...sighting, index: i + 1 })).join('')}</div>`;
+   //view.innerHTML = `<div> ${sightings.map(sighting =>JSON.stringify(sighting)).join("")}</div>`;
 }
 
 async function getSightings(path) {
