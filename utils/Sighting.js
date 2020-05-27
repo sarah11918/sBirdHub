@@ -6,8 +6,9 @@ export default function Sighting(sighting) {
       </div>
       <div>
         <div class="gray">
-          ${sighting.howMany} birds at ${sighting.locName} at ${sighting.obsDt}
-          |
+          ${sighting.howMany} bird(s) at ${sighting.locName}
+          <div>${sighting.obsDt}</div>
+          </br>
         </div>
       </div>
     </div>
