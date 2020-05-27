@@ -5,9 +5,9 @@ window.onhashchange = () => {
 }
 
 function setActiveLink(){
-    const links=documents.querySelectorAll('.header-link');
+    const links = documents.querySelectorAll('.header-link');
     links.forEach(link => {
-        const linkPath=link.gettAttribute('href');
+        const linkPath = link.getAttribute('href');
         const currentPath=window.location.hash;
         if(currentPath === linkPath){
             link.classLink.add('active');

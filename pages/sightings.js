@@ -1,11 +1,15 @@
 import view from '../utils/view.js'
 
-export default function Sightings() {
-    view.innerHTML = `<div> ${path} </div>`;
+export default function Sightings(path) {
+    view.innerHTML = `<div> ${path}</div>`;
+}
+
+//export default function Sightings() {
+    //view.innerHTML = `<div> TEXT </div>`;
     //const sightings = await getSightings(path);
     //const hasSightings = sightings.length > 0;
     //view.innerHTML = `<div>${hasSightings ? sightings.map(sighting => JSON.stringify(sighting)) : 'No sightings.'}</div>`;
-}
+//}
 
 
 // async function getSightings(path) {
