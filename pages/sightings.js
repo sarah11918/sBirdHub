@@ -1,16 +1,14 @@
 import view from '../utils/view.js'
 import Sighting from '../utils/Sighting.js'
 
-function displaySpeciesItem(bird) {
-    return `<li>${bird}</li>`;
-}
 export default async function Sightings(path) {
     const sightings = await getSightings(path);
 if (path === '/species') {
-
-view.innerHTML = `<div> <ol>${sightings.map((item) => displaySpeciesItem(item) ).join('')}</ol> </div>`;
+    const speciesLineItems = sightings.map((item) => `<li>${item}</li>` );
+    view.innerHTML = `<div> <ol>${speciesLineItems.join('')}</ol> </div>`;
 } else {
-    view.innerHTML = `<div> ${sightings.map((sighting, i) => Sighting({ ...sighting, index: i + 1 })).join('')}</div>`;
+    const sightingDivs = sightings.map((sighting, i) => Sighting({ ...sighting, index: i + 1 }));
+    view.innerHTML = `<div>${sightingDivs.join('')}</div>`;
 }
 
 async function getSightings(path) {
