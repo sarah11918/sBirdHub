@@ -1,16 +1,11 @@
 export default function Sighting(sighting) {
-    if (sighting.howMany == null && sighting.userDisplayName == null) {
+    if (sighting.howMany == null && sighting.userDisplayName !== null){
         return `
-        <div class="sighting>${sighting}</div>
-        `;
-  
-    } else if (sighting.howMany == null && sighting.userDisplayName !== null){
-      return `
-    <div class="sighting">
-      <div> 
-        <span class="gray">${sighting.loc.locName}</span>
-      </div>
-      <div>
+        <div class="sighting">
+            <div> 
+                <span class="gray">${sighting.loc.locName}</span>
+            </div>
+        <div>
         <div class="gray">
           ${sighting.userDisplayName} saw ${sighting.numSpecies} species(s)
           <div>${sighting.obsDt} at ${sighting.obsTime}</div>
