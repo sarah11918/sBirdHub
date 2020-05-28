@@ -3,6 +3,7 @@ import Sighting from '../utils/Sighting.js'
 
 export default async function Sightings(path) {
     const sightings = await getSightings(path);
+
     view.innerHTML = `<div> ${sightings.map((sighting, i) => Sighting({ ...sighting, index: i + 1 })).join('')}</div>`;
    //view.innerHTML = `<div> ${sightings.map(sighting =>JSON.stringify(sighting)).join("")}</div>`;
 }
@@ -33,7 +34,13 @@ async function getSightings(path) {
     const data = await response.json();
     console.log(data);
     return data;      
+    } else if (path === '/species'){
+    const response =await fetch("https://api.ebird.org/v2/product/spplist/L7305530", requestOptions);
+    const data = await response.json();
+    console.log(data);
+    return data; 
     }
+
     
     
     //return sightings;

@@ -1,5 +1,10 @@
 export default function Sighting(sighting) {
-  if (sighting.comName == null){
+    if (sighting.howMany == null && sighting.userDisplayName == null) {
+        return `
+        <div class="sighting>${sighting}</div>
+        `;
+  
+    } else if (sighting.howMany == null && sighting.userDisplayName !== null){
       return `
     <div class="sighting">
       <div> 
@@ -14,6 +19,7 @@ export default function Sighting(sighting) {
       </div>
     </div>
   `;  
+  
   } else {
     return `
     <div class="sighting">

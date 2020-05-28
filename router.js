@@ -12,7 +12,8 @@ export default class RouterHandler{
     const routes = [
             {path: '/', page: Sightings},
             {path: '/recent', page: Sightings},
-            {path: '/notable', page: Sightings}
+            {path: '/notable', page: Sightings},
+            {path: '/species', page: Sightings}
         ];
   
         routes.forEach(({ path, page }) => {
