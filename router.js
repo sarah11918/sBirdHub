@@ -1,5 +1,6 @@
 import Sightings from './pages/sightings.js'
 
+
 const router = new Navigo(null, true, '#');
 
 export default class RouterHandler{

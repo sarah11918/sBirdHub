@@ -1,5 +1,21 @@
 export default function Sighting(sighting) {
-  return `
+  if (sighting.comName == null){
+      return `
+    <div class="sighting">
+      <div> 
+        <span class="gray">${sighting.loc.locName}</span>
+      </div>
+      <div>
+        <div class="gray">
+          ${sighting.userDisplayName} saw ${sighting.numSpecies} species(s)
+          <div>${sighting.obsDt} at ${sighting.obsTime}</div>
+          </br>
+        </div>
+      </div>
+    </div>
+  `;  
+  } else {
+    return `
     <div class="sighting">
       <div> 
         <span class="gray">${sighting.comName}</span>
@@ -13,4 +29,5 @@ export default function Sighting(sighting) {
       </div>
     </div>
   `;  
+}
 }
