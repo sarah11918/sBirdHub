@@ -3,9 +3,10 @@ import Sighting from '../utils/Sighting.js'
 
 export default async function Sightings(path) {
     const sightings = await getSightings(path);
-
+if (path === '/species') {
+    view.innerHTML = `<div> ${sightings.map(sighting =>JSON.stringify(sighting)).join("")}</div>`;
+} else {
     view.innerHTML = `<div> ${sightings.map((sighting, i) => Sighting({ ...sighting, index: i + 1 })).join('')}</div>`;
-   //view.innerHTML = `<div> ${sightings.map(sighting =>JSON.stringify(sighting)).join("")}</div>`;
 }
 
 async function getSightings(path) {
@@ -40,13 +41,7 @@ async function getSightings(path) {
     console.log(data);
     return data; 
     }
-
-    
-    
-    //return sightings;
-    // .then(response => response.text())
-    // .then(result => console.log(result))
-    // .catch(error => console.log('error', error));
+}
 }
 
 // async function getSightings(path) {
@@ -72,4 +67,4 @@ async function getSightings(path) {
 //Recent nearby - https://api.ebird.org/v2/data/obs/geo/recent?lat={{lat}}&lng={{lng}}
 //Recent nearby of a species - https://api.ebird.org/v2/data/obs/geo/recent/{{speciesCode}}?lat={{lat}}&lng={{lng}}
 //Recent nearby notable - https://api.ebird.org/v2/data/obs/geo/recent/notable?lat={{lat}}&lng={{lng}}
-// Species List at a location - https://api.ebird.org/v2/product/spplist/{{locId}}
+//Species List at a location - https://api.ebird.org/v2/product/spplist/{{locId}
