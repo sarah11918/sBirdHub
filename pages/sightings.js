@@ -21,7 +21,7 @@ async function getSightings(path) {
     };
 
     if (path === '/notable') {
-    const response = await fetch("https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/notable?detail=full", requestOptions);
+    const response = await fetch("https://api.ebird.org/v2/data/obs/CA-PE/recent/notable?detail=full", requestOptions);
     const data = await response.json();
     console.log(data);
     return data;
@@ -36,7 +36,7 @@ async function getSightings(path) {
     console.log(data);
     return data;      
     } else if (path === '/species'){
-    const response =await fetch("https://api.ebird.org/v2/product/spplist/L7305530", requestOptions);
+    const response = await fetch("https://api.ebird.org/v2/product/spplist/L7305530", requestOptions);
     const data = await response.json();
     console.log(data);
     return data; 
@@ -44,22 +44,10 @@ async function getSightings(path) {
 }
 }
 
-// async function getSightings(path) {
-//     const isHomeRoute = path === '/';
-//     const isRecentRoute = path === '/recent';
-//     const isNotableRoute = path === '/notable';
-//     if (isHomeRoute) {
-//         path = '/product/spplist/CA-PE-PR';
-//     } else if (isRecentRoute) {
-//         path = '/data/obs/CA-PE-P/recent';
-//     } else if (isNotableRoute) {
-//         path = 'data/obs/CA-PE-P/recent/notable'
-//     }
 
-//     const response = await fetch (`https://api.ebird.org/v2${path}`,{headers:{'X-eBirdApiToken': '2ifbkhv7g8ct'}});
-//     const sightings = await response.json();
-//     return sightings;
-// }
+// North Market LocId: L8929685
+// Shipyard Harbour LocId: L7305530
+
 
 //Recent - https://api.ebird.org/v2/data/obs/{{regionCode}}/recent
 //Notable - https://api.ebird.org/v2/data/obs/{{regionCode}}/recent/notable
