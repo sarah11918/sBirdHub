@@ -7,7 +7,7 @@ export default function Sighting(sighting) {
             </div>
         <div>
         <div class="gray">
-          ${sighting.userDisplayName} saw ${sighting.numSpecies} species(s)
+          ${sighting.userDisplayName} saw ${sighting.numSpecies} species
           <div>${sighting.obsDt} at ${sighting.obsTime}</div>
           </br>
         </div>
