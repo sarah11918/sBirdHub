@@ -3,9 +3,12 @@ import Sighting from '../utils/Sighting.js'
 
 export default async function Sightings(path) {
     const sightings = await getSightings(path);
-if (path === '/species') {
+if (path === ('/species_back')) {
     const speciesLineItems = sightings.map((item) => `<li>${item}</li>` );
     view.innerHTML = `<div> <ol>${speciesLineItems.join('')}</ol> </div>`;
+} else if (path === ('/species_front')) {
+    const speciesLineItems = sightings.map((item) => `<li>${item}</li>` );
+    view.innerHTML = `<div> <ol>${speciesLineItems.join('')}</ol> </div>`;  
 } else {
     const sightingDivs = sightings.map((sighting, i) => Sighting({ ...sighting, index: i + 1 }));
     view.innerHTML = `<div>${sightingDivs.join('')}</div>`;
@@ -23,7 +26,7 @@ async function getSightings(path) {
     };
 
     if (path === '/notable') {
-    const response = await fetch("https://api.ebird.org/v2/data/obs/CA-PE/recent/notable?detail=full", requestOptions);
+    const response = await fetch("https://api.ebird.org/v2/data/obs/CA-PE-PR/recent/notable?detail=full", requestOptions);
     const data = await response.json();
     console.log(data);
     return data;
@@ -37,8 +40,13 @@ async function getSightings(path) {
     const data = await response.json();
     console.log(data);
     return data;      
-    } else if (path === '/species'){
+    } else if (path === '/species_front'){
     const response = await fetch("https://api.ebird.org/v2/product/spplist/L7305530", requestOptions);
+    const data = await response.json();
+    console.log(data);
+    return data; 
+    } else if (path === '/species_back'){
+    const response = await fetch("https://api.ebird.org/v2/product/spplist/L8929685", requestOptions);
     const data = await response.json();
     console.log(data);
     return data; 

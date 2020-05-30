@@ -13,7 +13,8 @@ export default class RouterHandler{
             {path: '/', page: Sightings},
             {path: '/recent', page: Sightings},
             {path: '/notable', page: Sightings},
-            {path: '/species', page: Sightings}
+            {path: '/species_back', page: Sightings},
+            {path: '/species_front', page: Sightings}
         ];
   
         routes.forEach(({ path, page }) => {
