@@ -1,11 +1,16 @@
 import view from '../utils/view.js'
 import Sighting from '../utils/Sighting.js'
 
+
 export default async function Sightings(path) {
     const sightings = await getSightings(path);
 if (path === ('/species_back')) {
     const speciesLineItems = sightings.map((item) => `<li>${item}</li>` );
     view.innerHTML = `<div> <ol>${speciesLineItems.join('')}</ol> </div>`;
+    //const uniqueBirdList = [...new Set(sightings)];
+    //let innerText = document.querySelector('#later-stuff');
+    //innerText.innerHTML = `<div> ${uniqueBirdList} </div>`;
+ 
 } else if (path === ('/species_front')) {
     const speciesLineItems = sightings.map((item) => `<li>${item}</li>` );
     view.innerHTML = `<div> <ol>${speciesLineItems.join('')}</ol> </div>`;  
@@ -13,6 +18,8 @@ if (path === ('/species_back')) {
     const sightingDivs = sightings.map((sighting, i) => Sighting({ ...sighting, index: i + 1 }));
     view.innerHTML = `<div>${sightingDivs.join('')}</div>`;
 }
+
+
 
 async function getSightings(path) {
 
@@ -53,6 +60,8 @@ async function getSightings(path) {
     }
 }
 }
+
+
 
 
 // North Market LocId: L8929685
